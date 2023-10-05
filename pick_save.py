@@ -23,26 +23,26 @@ from datetime import date, timedelta
 #         obj = pickle.load(inp)
 #     return obj
 
-
-def create_user_list():
-    """Make the list once and never enter the function again."""
-    library_users = []
-    save_object(library_users, 'library_users.pkl')
-
-    choice = input(str("Enter (1) to return to menu or (0) to exit: "))
-    if choice == '1':
-        pass
-    elif choice == '0':
-        ea.leave()
-
-
-def create_book_list():
-    """Make the list once and never enter the function again."""
-    book_list = []
-    save_object(book_list, 'book_list.pkl')
-    print("File created!")
-    sleep(3)
-    int_fs.admin_home()
+#
+# def create_user_list():
+#     """Make the list once and never enter the function again."""
+#     library_users = []
+#     save_object(library_users, 'library_users.pkl')
+#
+#     choice = input(str("Enter (1) to return to menu or (0) to exit: "))
+#     if choice == '1':
+#         pass
+#     elif choice == '0':
+#         ea.leave()
+#
+#
+# def create_book_list():
+#     """Make the list once and never enter the function again."""
+#     book_list = []
+#     save_object(book_list, 'book_list.pkl')
+#     print("File created!")
+#     sleep(3)
+#     int_fs.admin_home()
 
 
 def add_user_to_sql_database(first_name, last_name, year_of_registration, registration_no, password):
