@@ -4,8 +4,8 @@ import os
 import sys
 import time
 import random
+import psycopg2
 import pick_save
-from user import User
 import exit_application as ea
 
 
@@ -64,7 +64,8 @@ def input_data():
     print("\n\t\t\t\t\t\t\t\t\t > Your registration number: ", registration_no)
 
     my_password = set_key()
-    save_data(first_name, last_name, ID_no, year_of_registration, registration_no, my_password)
+
+    pick_save.add_user_to_sql_database(first_name, last_name, year_of_registration, registration_no, my_password)
 
     print("\n\n\t\t\t\t\t\t\t\t\t\t\a\a >>>>> Password saved >>>>>>")
     print("\n\n\t\t\t\t\t\t\t\t\t\t\a\a ****** Registration success! ******")
@@ -75,18 +76,3 @@ def input_data():
         pass
     elif choice == '0':
         ea.leave()
-
-
-def save_data(first_name, last_name, ID_no, year_of_registration, registration_no, my_password):
-    """Save the data to a pickle file."""
-    # Create an object of class user using the data collected
-    library_users = pick_save.load_object('library_users.pkl')
-    library_users.append(User(first_name, last_name, ID_no, year_of_registration, registration_no, my_password))
-
-    pick_save.save_object(library_users, 'library_users.pkl')
-    # This file now contains a list of objects.The mother list being 'library users'.
-    # We can access those objects, the individual users by first name as follows
-    """
-    e.g for library_user in library_users:
-                    ...do something to library user...
-    """

@@ -12,22 +12,14 @@ password_2 = 'y'
 count = 0
 
 
-def get_password(name):
+def get_password(first_name):
     """Retrieve the password from the library user pickle file."""
-    password_key = None
-    member = None
-    library_users = pick_save.load_object('library_users.pkl')
+    member = first_name
 
-    # Check whether the name exists in the record
-    pass_list = []
-    for library_user in library_users:
-        pass_list.append(library_user.first_name)
+    user_flag = pick_save.confirm_user_exists(first_name)
 
-    if name in pass_list:
-        for library_user in library_users:
-            if library_user.first_name == name:
-                member = library_user.first_name
-                password_key = library_user.password
+    if user_flag:
+        password_key = pick_save.get_password_from_sql(first_name)
         user_password_comp(password_key)
 
         # Move verified user to member interface

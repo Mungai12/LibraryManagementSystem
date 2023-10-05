@@ -1,5 +1,4 @@
 """A module to hold all interfaces."""
-import user
 import pick_save
 from os import system
 import book_functions as bf
@@ -13,7 +12,6 @@ def admin_home():
     print("\n\n\t\t\t\t\t\t\t\t****** WELCOME ADMIN TO THE LINCOLN LIBRARY ******")
     print("\t\t\t\t\t\t\t\t\t    ~ Readers Are Leaders ~\n")
     print("\t\t\t\t\t\t\t\t\t\t 1.add a book")
-    print("\t\t\t\t\t\t\t\t\t\t @.create book_list")
     print("\t\t\t\t\t\t\t\t\t\t 2.Exit Application")
 
     choice = input(str("\n\n\t\t\t\t\t\t\t\t\t\t <> Enter choice: "))
@@ -24,21 +22,12 @@ def admin_home():
         bf.book_home()
         admin_home()
 
-    elif choice == '@':
-        # I choose a strange sign so that you
-        # invoke this method with prudence.
-        # Call this only once to create the initial books list
-        # Otherwise your data will be overwritten
-        pick_save.create_book_list()
-        admin_home()
-
     elif choice == '2':
         system('cls')
         ea.leave()
 
 
 # Only registered members can access these interface.
-# 'me' represents the first name of the current user
 def member_home(first_name):
     """Display the library member interface."""
     system('cls')
@@ -47,9 +36,8 @@ def member_home(first_name):
     print("\t\t\t\t\t\t\t\t\t\t 1.see catalogue")
     print("\t\t\t\t\t\t\t\t\t\t 2.Borrow a book")
     print("\t\t\t\t\t\t\t\t\t\t 3.Return a book")
-    print("\t\t\t\t\t\t\t\t\t\t 4.Clear Overdue")
-    print("\t\t\t\t\t\t\t\t\t\t 5.View  Account details")
-    print("\t\t\t\t\t\t\t\t\t\t 6.Exit Application")
+    print("\t\t\t\t\t\t\t\t\t\t 4.View  Account details")
+    print("\t\t\t\t\t\t\t\t\t\t 5.Exit Application")
 
     choice = input(str("\n\n\t\t\t\t\t\t\t\t\t\t <> Enter choice: "))
 
@@ -69,14 +57,9 @@ def member_home(first_name):
         member_home(first_name)
 
     if choice == '4':
-        bf.clear_overdue(first_name)
+        pick_save.view_user_detail(first_name)
         system('cls')
         member_home(first_name)
 
     if choice == '5':
-        user.view_details(first_name)
-        system('cls')
-        member_home(first_name)
-
-    if choice == '6':
         ea.leave()
