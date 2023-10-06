@@ -8,8 +8,8 @@ CREATE TABLE users(
 );
 -- Just a few users to work with
 INSERT INTO users(first_name, last_name, year_of_registration, registration_number, password)
-VALUES ('Levi', 'Mungai', 2023, 'll|1562|2023', 'lady'),
-       ('Eve', 'Muthoni', 2024, 'll|6723|2024', 'eve');
+VALUES ('Levi', 'Mungai', 2023, 'll|1562|2023', 'lad'),
+       ('Adam', 'Eve', 2024, 'll|6723|2024', 'eve');
 
 
 CREATE TABLE books(

@@ -1,5 +1,5 @@
 # This is the main module of the program
-# The admin password is 'admin'
+# The admin password is 'admin123'
 # From here the interface of the application can be accessed
 import exit_application as ea
 import book_functions as bf

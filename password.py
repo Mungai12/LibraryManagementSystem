@@ -13,7 +13,7 @@ count = 0
 
 
 def get_password(first_name):
-    """Retrieve the password from the library user pickle file."""
+    """Retrieve the password from the sql user table ."""
     member = first_name
 
     user_flag = pick_save.confirm_user_exists(first_name)
